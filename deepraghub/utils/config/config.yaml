@@ -1,0 +1,33 @@
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"  # Add this line
+  chunk_size: 512
+  overlap: 50
+
+embedding:
+  model_type: "openai"
+  model_name: "text-embedding-3-small"
+  device: "gpu"
+  train:
+    enabled: false
+    dataset_path: "data/processed"
+    output_path: "data/embeddings"
+    epochs: 3
+    batch_size: 32
+    learning_rate: 2e-5
+
+retrieval:
+  vector_db_name: "in_memory"
+  vector_db_url: ""
+  collection_name: "test_collection"
+  top_k: 5
+
+generation:
+  model_type: "openai"
+  model_name: "gpt-4o"
+  max_length: 512
+  temperature: 0.7
+
+rag:
+  max_context_size: 4096
+  top_k_docs: 5
