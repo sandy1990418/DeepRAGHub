@@ -35,8 +35,8 @@ def main():
 
     # Update config for training
     config.embedding.train.enabled = True
-    config.embedding.train.dataset_path = "deepraghub/data/processed/training_data.jsonl"
-    config.embedding.train.output_path = "deepraghub/data/embeddings/custom_model"
+    # config.embedding.train.dataset_path = "deepraghub/data/processed/training_data.jsonl"
+    # config.embedding.train.output_path = "deepraghub/data/embeddings/custom_model"
     config.embedding.model_type = "custom"
     config.embedding.model_name = "sentence-transformers/all-MiniLM-L6-v2"
 

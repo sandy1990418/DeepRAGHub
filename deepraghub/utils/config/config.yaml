@@ -5,14 +5,18 @@ data:
   overlap: 50
 
 embedding:
-  model_type: "openai"
-  model_name: "text-embedding-3-large" # "distilbert-base-uncased"
+  model_type: "custom"
+  model_name: "distilbert-base-uncased" # "distilbert-base-uncased"
   device: "cuda"
   train:
     enabled: true
-    output_path: "deepraghub/data/embeddings"
-    epochs: 4
+    dataset_source: "huggingface"
+    dataset_name: "sentence-transformers/stsb"
+    dataset_path: "deepraghub/data/processed/training_data.jsonl"
+    output_path: "models/embeddings"
+    num_epochs: 10
     batch_size: 16
+    learning_rate: 2e-5
     eval_steps: 100
     save_steps: 100
     fp16: true

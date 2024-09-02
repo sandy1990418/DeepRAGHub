@@ -164,3 +164,4 @@ cython_debug/
 
 scripts/test_rag.py
 qdrant_storage/
+model*

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Any
 import yaml
 
 
@@ -14,13 +14,19 @@ class DataConfig(BaseModel):
 
 class TrainConfig(BaseModel):
     enabled: bool = Field(default=False, description="Whether training is enabled")
+    dataset_name: Optional[str] = Field(
+        default=None, description="Name of the training dataset"
+    )
+    dataset_source: Optional[str] = Field(
+        default=None, description="Source of the training dataset"
+    )
     dataset_path: Optional[str] = Field(
         default=None, description="Path to the training dataset"
     )
-    output_path: Optional[str] = Field(
+    output_path: Optional[Any] = Field(
         default=None, description="Path to save the trained model"
     )
-    epochs: int = Field(default=3, description="Number of training epochs")
+    num_epochs: int = Field(default=3, description="Number of training epochs")
     batch_size: int = Field(default=32, description="Batch size for training")
     eval_dataset_path: Optional[str] = Field(
         default=None, description="Path to the evaluation dataset"
